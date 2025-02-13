@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Memories</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #ffafbd, #ffc3a0);
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            overflow-y: auto;
+            height: 200vh;
+        }
+        .container {
+            position: relative;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: 100vh auto 0;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #d63384;
+        }
+        .scroll-text {
+            white-space: nowrap;
+            overflow: hidden;
+            display: block;
+            font-size: 18px;
+            color: #555;
+            margin-top: 10px;
+        }
+        .photo-container {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .floating-img {
+            max-width: 300px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            transition: transform 0.2s ease-out;
+        }
+        .letter-container {
+            position: relative;
+            max-width: 600px;
+            margin: 50px auto;
+            perspective: 1000px;
+        }
+        .letter {
+            width: 100%;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform-origin: top;
+            transform: rotateX(90deg);
+            transition: transform 1s ease-in-out;
+        }
+        .letter.open {
+            transform: rotateX(0deg);
+        }
+    </style>
+</head>
+<body>
+    <iframe 
+        id="bg-music"
+        width="0" 
+        height="0" 
+        src="https://www.youtube.com/embed/wo3OM2_E7FU?enablejsapi=1" 
+        frameborder="0" 
+        allow="autoplay"
+        allowfullscreen>
+    </iframe>
+    <div class="photo-container">
+        <img src="/blushy.jpeg" class="floating-img" style="top: 10%; left: 20%;">
+        <img src="/khubsurat sapna.jpeg" class="floating-img" style="top: 30%; left: 70%;">
+        <img src="/sapna.jpeg" class="floating-img" style="top: 50%; left: 10%;">
+        <img src="/muh.jpeg" class="floating-img" style="top: 70%; left: 80%;">
+        <img src="/support.jpeg" class="floating-img" style="top: 90%; left: 30%;">
+        <img src="/bachha.jpeg" class="floating-img" style="top: 110%; left: 60%;">
+    </div>
+    <div class="container">
+        <div class="title">Happiest Diwali Ever ^_^</div>
+        <marquee class="scroll-text">This is our beautiful journey, filled with love, laughter, and unforgettable moments.</marquee>
+    </div>
+    <div class="letter-container">
+        <div class="letter" id="letter">
+            <p>Hey love 🌟</p>
+            <p>I've been thinking about everything that's happened between us, and my heart just overflows with things I need to say ❤️ You know what makes me smile even now? Remembering those precious nights when I'd practically fly up to the roof, my heart dancing with joy just knowing I'd hear your voice soon 🌙✨ Those late-night calls were pure magic – just you, me, and endless conversations that made everything feel perfect.</p>
+            <p>Remember all those beautiful messages we used to share? 💝 How we could talk about literally anything and everything? The way you'd make me laugh even on my worst days, and how we'd be there for each other through thick and thin 🤗 That's what made us so incredibly special – we weren't just lovers, we were best friends who understood each other's hearts.</p>
+            <p>My sweet friend, I need to apologize for what happened during my breakdown. While PTSD might explain my actions, it doesn't excuse the pain I caused your beautiful heart. If I had even the tiniest control over my words and actions then, I failed you, and I'm truly, deeply sorry for that. You deserved nothing but love and care.</p>
+            <p>I want you to know that I'm pouring my heart into becoming better. Each day brings tiny victories in my recovery journey, and even though some days are harder than others, I'm growing stronger little by little. I'm doing everything I can to manage my PTSD and become the person you always saw in me – because you, my dear, helped me see the light in myself when everything felt dark ✨</p>
+            <p>त्वां विना अहं स्वर्गमपि न इच्छामि (Without you, even heaven I do not desire), mahabhage 💫 Every day without you feels like a song missing its melody. The laughter isn't as bright, the stars don't shine quite as brilliantly, and even the sweetest moments feel incomplete without your presence. I miss my love, my everything wrapped up in one amazing soul 🥹</p>
+            <p>If your heart is willing, I'd love another chance to talk things through 🤍 I'm not trying to pressure you – I respect whatever your heart decides. But know that my door, and my heart, will always be open for you, waiting with all the love and care you deserve.</p>
+            <p>Take care of your precious self :D</p>
+            <p>Happy Valentines Day in advance ^_^</p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(() => {
+                document.getElementById("letter").classList.add("open");
+            }, 1000);
+        });
+
+        document.addEventListener("click", function () {
+            let iframe = document.getElementById("bg-music");
+            iframe.src = "https://www.youtube.com/embed/wo3OM2_E7FU?autoplay=1";
+        });
+    </script>
+</body>
+</html>
