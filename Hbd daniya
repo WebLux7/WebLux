@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Daniya!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Poppins:wght@400;500;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #000000;
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        .header h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 4rem;
+            color: #b366ff;
+            text-shadow: 0 0 20px rgba(138, 43, 226, 0.7);
+            margin-bottom: 1rem;
+        }
+        
+        .changing-wishes-container {
+            height: 3em;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        
+        .changing-wishes {
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            display: block;
+            color: #e4b6ff;
+            text-shadow: 0 0 10px rgba(228, 182, 255, 0.7);
+            font-size: 1.2rem;
+        }
+        
+        .changing-wishes span {
+            display: block;
+            height: 100%;
+            animation: spin-words 10s infinite;
+            width: 100%;
+            text-align: center;
+            padding: 0.5em 0;
+        }
+        
+        @keyframes spin-words {
+            0%, 15% { transform: translateY(0%); }
+            20%, 35% { transform: translateY(-100%); }
+            40%, 55% { transform: translateY(-200%); }
+            60%, 75% { transform: translateY(-300%); }
+            80%, 95% { transform: translateY(-400%); }
+            100% { transform: translateY(0%); }
+        }
+        
+        .ayush-direct-wish {
+            text-align: center;
+            margin: 0 auto 3rem;
+            max-width: 800px;
+            padding: 1.5rem;
+            background: linear-gradient(145deg, #2196f3, #03a9f4);
+            border-radius: 15px;
+            color: white;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(33, 150, 243, 0.7);
+            animation: textGlow 2s infinite alternate, floatBox 6s ease-in-out infinite;
+        }
+        
+        .ayush-direct-wish::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+            animation: shimmer 3s linear infinite;
+            pointer-events: none;
+        }
+        
+        .ayush-signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            margin-top: 0.8rem;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            font-weight: bold;
+        }
+        
+        @keyframes textGlow {
+            0% {
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+            }
+            100% {
+                text-shadow: 0 0 15px rgba(255, 255, 255, 0.9), 0 0 25px rgba(33, 150, 243, 0.8);
+            }
+        }
+        
+        @keyframes shimmer {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes floatBox {
+            0%, 100% {
+                transform: translateY(0);
+                box-shadow: 0 0 30px rgba(33, 150, 243, 0.7);
+            }
+            50% {
+                transform: translateY(-10px);
+                box-shadow: 0 0 40px rgba(33, 150, 243, 0.9);
+            }
+        }
+        
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+        
+        .card-wrapper {
+            perspective: 1000px;
+            width: 350px;
+            height: 450px;
+        }
+        
+        .envelope {
+            position: relative;
+            width: 350px;
+            height: 450px;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 1s ease;
+        }
+        
+        .card-wrapper:hover .envelope {
+            transform: rotateY(10deg);
+        }
+        
+        .envelope.open {
+            transform: rotateY(170deg);
+        }
+        
+        .envelope-front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        .envelope-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            transform: rotateY(180deg);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .laksh-envelope .envelope-front {
+            background: linear-gradient(145deg, #9c27b0, #673ab7);
+            box-shadow: 0 0 25px rgba(156, 39, 176, 0.8);
+        }
+        
+        .ayush-envelope .envelope-front {
+            background: linear-gradient(145deg, #2196f3, #03a9f4);
+            box-shadow: 0 0 25px rgba(33, 150, 243, 0.8);
+        }
+        
+        .envelope-seal {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: white;
+            z-index: 1;
+            font-family: 'Dancing Script', cursive;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            font-size: 1.3rem;
+        }
+        
+        .laksh-envelope .envelope-seal {
+            background: #9c27b0;
+            box-shadow: 0 0 15px rgba(156, 39, 176, 0.7);
+        }
+        
+        .ayush-envelope .envelope-seal {
+            background: #2196f3;
+            box-shadow: 0 0 15px rgba(33, 150, 243, 0.7);
+        }
+        
+        .envelope-from {
+            position: absolute;
+            bottom: 20px;
+            font-size: 1.2rem;
+            color: white;
+            font-weight: 500;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .card {
+            width: 330px;
+            height: 430px;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: scale(0.95);
+            transform-origin: center;
+            transition: transform 0.5s ease;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .card:hover {
+            transform: scale(1);
+        }
+        
+        .laksh-card {
+            background: linear-gradient(to bottom right, #f3e5f5, #e1bee7);
+            border: 3px solid #9c27b0;
+            box-shadow: 0 0 30px rgba(156, 39, 176, 0.7);
+        }
+        
+        .ayush-card {
+            background: linear-gradient(to bottom right, #e3f2fd, #bbdefb);
+            border: 3px solid #2196f3;
+            box-shadow: 0 0 30px rgba(33, 150, 243, 0.7);
+        }
+        
+        .card-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-header h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .laksh-card .card-header h2 {
+            color: #6a1b9a;
+        }
+        
+        .ayush-card .card-header h2 {
+            color: #0d47a1;
+        }
+        
+        .card-content {
+            text-align: center;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+        
+        .card-signature {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .laksh-card .card-signature {
+            color: #6a1b9a;
+        }
+        
+        .ayush-card .card-signature {
+            color: #0d47a1;
+        }
+        
+        .card-decoration {
+            position: absolute;
+            pointer-events: none;
+        }
+        
+        .deco-circle {
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .laksh-card .deco-circle {
+            background: #ce93d8;
+        }
+        
+        .ayush-card .deco-circle {
+            background: #90caf9;
+        }
+        
+        .deco-heart {
+            font-size: 1.5rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .laksh-card .deco-heart {
+            color: #9c27b0;
+        }
+        
+        .ayush-card .deco-heart {
+            color: #2196f3;
+        }
+        
+        .deco-star {
+            font-size: 1.5rem;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+        
+        .laksh-card .deco-star {
+            color: #9c27b0;
+        }
+        
+        .ayush-card .deco-star {
+            color: #2196f3;
+        }
+        
+        .ayush-message {
+            margin-top: 2rem;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(145deg, #2196f3, #03a9f4);
+            border-radius: 15px;
+            color: white;
+            box-shadow: 0 0 35px rgba(33, 150, 243, 0.6);
+            position: relative;
+            overflow: hidden;
+            animation: glowPulse 3s infinite alternate;
+        }
+        
+        @keyframes glowPulse {
+            0% {
+                box-shadow: 0 0 20px rgba(33, 150, 243, 0.5);
+            }
+            100% {
+                box-shadow: 0 0 40px rgba(33, 150, 243, 0.8);
+            }
+        }
+        
+        .ayush-message-content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .ayush-message-signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            margin-top: 1rem;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
+        .emoji-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        
+        .floating-emoji {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: floatEmoji 5s linear infinite;
+            opacity: 0.3;
+        }
+        
+        @keyframes floatEmoji {
+            0% {
+                transform: translateY(100%) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100%) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .dua-section {
+            margin-top: 2rem;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(145deg, #9c27b0, #673ab7);
+            border-radius: 15px;
+            color: white;
+            box-shadow: 0 0 35px rgba(156, 39, 176, 0.6);
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 1s ease-out forwards, purpleGlow 3s infinite alternate;
+        }
+        
+        @keyframes purpleGlow {
+            0% {
+                box-shadow: 0 0 20px rgba(156, 39, 176, 0.5);
+            }
+            100% {
+                box-shadow: 0 0 40px rgba(156, 39, 176, 0.8);
+            }
+        }
+        
+        .dua-section h2 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        
+        .dua-content {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .dua-arabic {
+            font-family: 'Scheherazade New', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            direction: rtl;
+        }
+        
+        .dua-translation {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .dua-reference {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .floating-element {
+            position: absolute;
+            opacity: 0.2;
+            animation: float 8s infinite ease-in-out;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1rem;
+            color: #aaa;
+            font-size: 0.9rem;
+            animation: fadeIn 2s ease-out;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 3rem;
+            }
+            
+            .cards-container {
+                gap: 2rem;
+            }
+            
+            .card-wrapper {
+                width: 320px;
+                height: 420px;
+            }
+            
+            .envelope {
+                width: 320px;
+                height: 420px;
+            }
+            
+            .card {
+                width: 300px;
+                height: 400px;
+            }
+            
+            .changing-wishes-container {
+                height: 4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Happy Birthday Daniya!</h1>
+            <div class="changing-wishes-container">
+                <div class="changing-wishes">
+                    <span>May your day be filled with love, joy, and blessings!</span>
+                    <span>May your day be filled with happiness and success!</span>
+                    <span>May your day be filled with laughter and wonderful surprises!</span>
+                    <span>May your day be filled with beautiful moments to cherish!</span>
+                    <span>May your day be filled with everything you wish for!</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Ayush's Direct Wish -->
+        <div class="ayush-direct-wish">
+            Hey cutie, I remember that you're gonna be in 9th standard now, focus on your studies but don't over stress and don't forgot to have proper diet and take care!!
+            <div class="ayush-signature">~ Ayush</div>
+        </div>
+        
+        <div class="cards-container">
+            <!-- Ayush's Card -->
+            <div class="card-wrapper">
+                <div class="envelope ayush-envelope" id="ayushEnvelope">
+                    <div class="envelope-front">
+                        <div class="envelope-seal">For You</div>
+                        <div class="envelope-from">From Ayush</div>
+                    </div>
+                    <div class="envelope-back">
+                        <div class="card ayush-card">
+                            <div class="card-header">
+                                <h2>Happy Birthday!</h2>
+                            </div>
+                            <div class="card-content">
+                                <p>Dear Daniya,</p>
+                                <br>
+                                <p>She was the most kindest and sweetest girl I’ve ever met, she understood me when no one else could, she listened to each and every part of my life patiently, she made me feel loved and cared when almost everyone ghosted me and hated me, she was the most beautiful and majestic person I’ve ever seen, her eyes were like a ocean full of mysteries and secrets,whenever she cried her eyes flooded my heart and brain with doubt, everyone went past me but she went through me, I couldn’t take her out of my head not even for moment, I still go crazy thinking abou her, I try to find her wherever I go but she’s nowhere but still in my heart, I never loved anyone as I love her, my heart ache it’s getting hard to breath, without her I am lost, my situation gets worse and worse, harder and harder, every moment is agony for me, I am not able to move properly with the all these weights, she knew every bit of me but still she chose to leave but I still remember how she saw me when I was invisible to all</p>
+                                <br/>
+                            </div>
+                            <div class="card-signature">Ayush</div>
+                            
+                            <!-- Decorations -->
+                            <div class="card-decoration deco-circle" style="top: 40px; right: 30px; width: 25px; height: 25px;"></div>
+                            <div class="card-decoration deco-circle" style="bottom: 60px; left: 40px; width: 18px; height: 18px;"></div>
+                            <div class="card-decoration deco-heart" style="top: 60px; left: 50px;">♥</div>
+                            <div class="card-decoration deco-star" style="bottom: 80px; right: 40px;">★</div>
+                            <div class="card-decoration deco-star" style="top: 110px; left: 70px;">★</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Laksh's Card -->
+            <div class="card-wrapper">
+                <div class="envelope laksh-envelope" id="lakshEnvelope">
+                    <div class="envelope-front">
+                        <div class="envelope-seal">For You</div>
+                        <div class="envelope-from">From Laksh</div>
+                    </div>
+                    <div class="envelope-back">
+                        <div class="card laksh-card">
+                            <div class="card-header">
+                                <h2>Happy Birthday!</h2>
+                            </div>
+                            <div class="card-content">
+                                <p>Dear Daniya,</p>
+                                <br>
+                                <p>Happy Birthday, Daniya! 🎂🎉  
+
+Wishing you success, happiness, and prosperity in everything you do. You’ve been putting in the work, and I know you’ll achieve even bigger things ahead. Just don’t forget to **take breaks, enjoy the little moments, and actually look after yourself too. No skipping meals, no stressing too much—you gotta chill sometimes,  
+
+Also, gotta say—I appreciate you for being there when I needed it. You didn’t have to, but you did, and that meant a lot. **I see that, and I won’t forget it. Just know I got you too, always. If things ever get rough, I’ll be around, making sure you’re good. 🤜🤛  
+
+Hope today’s filled with **good vibes, great memories, and all the people (and things 👀) that make you smile. Keep being the absolute legend you are, and let’s see what this next year has in store for you. Enjoy your day, 🎊🔥</p>
+                                <br>
+                                <p>Your friendship means the world to me. Thanks for being such an amazing friend!</p>
+                            </div>
+                            <div class="card-signature">Laksh</div>
+                            
+                            <!-- Decorations -->
+                            <div class="card-decoration deco-circle" style="top: 30px; left: 20px; width: 20px; height: 20px;"></div>
+                            <div class="card-decoration deco-circle" style="bottom: 50px; right: 30px; width: 15px; height: 15px;"></div>
+                            <div class="card-decoration deco-heart" style="top: 50px; right: 40px;">♥</div>
+                            <div class="card-decoration deco-star" style="bottom: 70px; left: 30px;">★</div>
+                            <div class="card-decoration deco-star" style="top: 100px; right: 80px;">★</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="dua-section">
+            <h2>Birthday Dua</h2>
+            <div class="dua-content">
+                <div class="dua-arabic">
+                    اللَّهُمَّ بَارِكْ لَهَا فِيمَا رَزَقْتَهَا، وَقِهَا شَرَّ مَا قَدَّرْتَ لَهَا
+                </div>
+                <div class="dua-translation">
+                    "O Allah, bless her in what You have provided for her, and protect her from the evil of what You have ordained."
+                </div>
+                <div class="dua-reference">
+                    May Allah grant you barakah (blessings) in your age and make you among those who are obedient to Him. May this new year of your life bring you closer to Allah and fill your days with peace, happiness, and success.
+                </div>
+            </div>
+            
+            <div class="floating-elements">
+                <div class="floating-element" style="top: 20%; left: 10%; font-size: 2rem;">✨</div>
+                <div class="floating-element" style="top: 70%; left: 80%; font-size: 2.5rem;">✨</div>
+                <div class="floating-element" style="top: 40%; left: 60%; font-size: 2rem;">✨</div>
+                <div class="floating-element" style="top: 80%; left: 30%; font-size: 1.8rem;">✨</div>
+                <div class="floating-element" style="top: 30%; left: 90%; font-size: 2.2rem;">✨</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Made with ❤️ for Daniya's Birthday</p>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const lakshEnvelope = document.getElementById("lakshEnvelope");
+            const ayushEnvelope = document.getElementById("ayushEnvelope");
+            
+            lakshEnvelope.addEventListener("click", function() {
+                this.classList.toggle("open");
+            });
+            
+            ayushEnvelope.addEventListener("click", function() {
+                this.classList.toggle("open");
+            });
+            
+            // Create random floating elements
+            function createFloatingElements() {
+                const container = document.querySelector('.container');
+                const elements = ['✨', '🎂', '🎁', '🎈', '🎊'];
+                
+                for (let i = 0; i < 20; i++) {
+                    const element = document.createElement('div');
+                    element.textContent = elements[Math.floor(Math.random() * elements.length)];
+                    element.style.position = 'absolute';
+                    element.style.left = `${Math.random() * 100}%`;
+                    element.style.top = `${Math.random() * 100}%`;
+                    element.style.fontSize = `${Math.random() * 1 + 0.5}rem`;
+                    element.style.opacity = '0.2';
+                    element.style.pointerEvents = 'none';
+                    element.style.animation = `float ${Math.random() * 5 + 5}s infinite ease-in-out ${Math.random() * 5}s`;
+                    element.style.zIndex = '-1';
+                    
+                    container.appendChild(element);
+                }
+            }
+            
+            // Create floating emojis for Ayush's message
+            function createFloatingEmojis() {
+                const emojiContainer = document.querySelector('.ayush-direct-wish');
+                const emojis = ['📚', '🎓', '🍎', '🥗', '💪', '❤️', '✨', '😊', '🌟', '💖'];
+                
+                for (let i = 0; i < 15; i++) {
+                    const emoji = document.createElement('div');
+                    emoji.className = 'floating-emoji';
+                    emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                    emoji.style.left = `${Math.random() * 100}%`;
+                    emoji.style.animationDuration = `${Math.random() * 5 + 3}s`;
+                    emoji.style.animationDelay = `${Math.random() * 5}s`;
+                    
+                    emojiContainer.appendChild(emoji);
+                }
+            }
+            
+            createFloatingElements();
+            createFloatingEmojis();
+        });
+    </script>
+</body>
+</html>
